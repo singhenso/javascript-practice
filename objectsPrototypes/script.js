@@ -69,5 +69,5 @@ console.log(Lisa.name + ', ' + Lisa.occupation);
 Lisa.sayHello();
 
 /*
-	Using the class syntax instead of constructor syntax makes objects not enumerable
+	Using the class syntax instead of constructor syntax makes objects not enumerable test
 */
