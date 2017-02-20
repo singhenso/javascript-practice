@@ -31,7 +31,7 @@ array.map(function(i){
 
 /*Abstracting over an array with reduce, folding up the array 1 element at a time
 	Easiest way (IMO) to sum up an array.
-*/ 
+*/  
 
 console.log(array.reduce(function(a, b){
 	return a + b;
