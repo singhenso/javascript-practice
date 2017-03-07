@@ -1,0 +1,14 @@
+Parallel vs. Async
+
+
+Parallelism - At any moment, 30 people can all experience the roller coaster at the same time; this is about optimization
+
+Nonparallelism - At any moment, only 1 person can ride the roller coaster
+
+Operating system schedules threads from core so that it can be as parallel as possible
+
+Javascript runs in a single thread at any given instant in the JS Engine. Web workers is a way of spinning up a seperate thread through the browser, but thats the web platform NOT JavaScript.
+
+Concurrency - 2 higher level tasks happening within the same time frame (not an instant); scheduling micro-level tasks on the event loop so that at any given instant its only doing one of those things at a first come first serve basis (whoever is quickest is scheduled first)
+
+The scheduling of concurrency is not always within our control but there is coordination necessary of responses to things happening
