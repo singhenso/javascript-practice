@@ -1,9 +1,11 @@
 //make a funciton that takes f that returns a function that calls f on time out
 
 function j(f){
-	setTimeout(function(){
-		f();
-	}, 1000)
+	return function(){
+		setTimeout(function(){
+			f();
+		}, 1000)
+	}
 }
 
 
@@ -11,7 +13,9 @@ function f(){
 	console.log('Hello');
 }
 
-f();
+var timeOut = j();
+
+timeOut();
 
 //make a function that calls input f every 50 miliseconds
 
