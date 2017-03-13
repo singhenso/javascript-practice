@@ -10,6 +10,10 @@
 
 	GOTCHA: clsoures cannot access an outer function's this variable by using the this keyword 
 	because the this variable is accessible only by the function itself, not the inner function
+	
+	Closures work because we moved memory allocation from the stack to the heap, and developed a 
+	garbage collecter for the heap
+		Don't allocate activation records on stack, allocate them on the heap with a garbage collector
 */
 
 function foo(){
@@ -214,6 +218,8 @@ for (var i = 1; i <=5; i++){
 	you get 6 5 different times, why don't we get 5 different i's?
 	
 	5 different functions close over same global scope
+
+	You could also solve this problem by using forEach() on an array
 */
 for (var i = 1; i <=5; i++){
 	(function(i){

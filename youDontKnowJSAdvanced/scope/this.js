@@ -1,4 +1,6 @@
 /*
+	Javascript doesn't bind "this" until the moment of invocation...
+	
 	this gets set by the call site of the function call
 	sort-of has a "dynamic scope"
 
