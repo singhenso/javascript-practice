@@ -274,7 +274,7 @@ function fibonaccif(num1, num2){
 				return b;
 			default:
 				next = a + b;
-				a = b;
+				a = b; 
 				b = next;
 				return next;
 		}
