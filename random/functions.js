@@ -13,7 +13,7 @@ function f(){
 	console.log('Hello');
 }
 
-var timeOut = j();
+var timeOut = j(f);
 
 timeOut();
 
@@ -32,3 +32,12 @@ foreverAndEver();
 //Check if matrix is word square (check [i][j] === [j][i])  
 
 //DFS on html nodes
+
+function DFSonHTMLNodes(rootNode){
+	console.log(rootNode);
+	rootNode = rootNode.firstChild;
+	while(rootNode){
+		DFSonHTMLNodes(rootNode);
+		rootNode = rootNode.nextSibling;
+	}
+}

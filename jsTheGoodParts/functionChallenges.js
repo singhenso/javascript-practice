@@ -289,3 +289,73 @@ function fibonaccif(a, b){
 		return next;
 	}
 }
+
+//==============================
+
+//Write a counter funciton that returns an object containing two functions
+//that implement an up/down counter, hiding the counter
+
+function counter(start){
+	var count = start;
+	var publicAPI = {
+		up: function(){
+			count++
+			return count;
+		},
+		down: function(){
+			count--
+			return count;
+		}
+	}
+	return publicAPI;
+}
+
+/*
+	Make a revocable funciton that takes a binary function and returns
+	an object containing an invoke function that can invoke the binary function
+	and a revoke funciton that disables the invoke function.
+
+	Notice:
+		Binary is hidden in the function scope of revocable. It's hidden by its 
+		closure. This is a way to design systems securely. Attackers with this 
+		source code have no idea what binaryFunction is.
+*/
+
+function revocable(binaryFunction){
+	return {
+		invoke: function(first, second){
+			if(binary !== undefined){
+				binaryFunction(
+				first,
+				second
+				);
+			}	
+		},
+		revoke: function(){
+			binaryFunction = undefined;
+		}
+	}
+}
+
+//========================================================
+
+//Write a funciton m that takes a value and optional source string and return them in an object
+
+function m(value, source){
+	return {
+		"value": value, 
+		"source": (typeof source === 'string' ? source : String(value));
+	};
+}
+
+//Write a function addm that adds two m objects and returns an m object
+
+function addm(firstm, secondm){
+	return m(
+		a.value + b.value,
+		"(" + a.source + " + " + b.source + ")"
+	);
+}
+
+//Write a function liftm that takes a binary function and a string and returns a function
+//that acts on m objects
