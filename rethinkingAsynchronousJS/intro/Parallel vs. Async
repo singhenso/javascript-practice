@@ -1,7 +1,8 @@
 Parallel vs. Async
 
+Async = the gap between now and later
 
-Parallelism - At any moment, 30 people can all experience the roller coaster at the same time; this is about optimization
+Parallelism = things occuring simultaneously (30 ppl on roller cost at once)
 
 Nonparallelism - At any moment, only 1 person can ride the roller coaster
 
@@ -12,3 +13,6 @@ Javascript runs in a single thread at any given instant in the JS Engine. Web wo
 Concurrency - 2 higher level tasks happening within the same time frame (not an instant); scheduling micro-level tasks on the event loop so that at any given instant its only doing one of those things at a first come first serve basis (whoever is quickest is scheduled first)
 
 The scheduling of concurrency is not always within our control but there is coordination necessary of responses to things happening
+
+So, AJAX requests COULD be ready to be processed at exactly the same moment, but the JS
+event loop will still handle them one at a time.
