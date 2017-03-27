@@ -13,12 +13,15 @@ function Node(){
 	this.firstChild = null; //has the value null for nodes without children
 	this.previousSibling = null; //for a first child, previousSibling will be null
 	this.nextSibling = null; //for last child, next sibling will be null
-	this.parent = null;
+	this.parentNode = null;
 	this.lastChild = null; //has the value null for nodes without children
 	this.childNodes = [];
 	this.className = someClassName;
-	this.innerHTML = null;
+	this.innerText = null;
 	this.id = null;
+	this.nodeType = null;
+	this.nodeType = null;
+	this.textContent = null;
 }
 
 //Use recursion to walk the DOM depth first search
@@ -55,29 +58,34 @@ function getElementsByClassName(className){
 
 //======================Retrieving Nodes=============================================
 
-document.getElementsById(id);
 
-document.getElementsByName(name);
+/*
+	In order of speed
+*/
 
-node.getElementsByTagName(tagName);
+document.getElementsById(id); 
 
-element = document.querySelector(selectors); //DFS of CSS selectors seperated by commas, first element is returned
+document.getElementsByTagName(tagName);
 
-elementList = document.querySelectorAll(selectors) //nodeList is returned
+document.getElementsByClassName(className);
+
+document.getElementByName(name);
+
+document.querySelector(selectors); //DFS of CSS selectors seperated by commas, first element is returned
+
+document.querySelectorAll(selectors) //nodeList is returned
 
 //======================Manipulating Elements========================================
 
 node.property = expression; //expression is whatever you want
 
-if(my_thing.getAttribute('complet')){
-	my_thing.setAttribute('src', superurl);
+if(my_node.getAttribute('complete')){
+	my_node.setAttribute('src', superurl);
 }
 
 //=====================Styling Elements==============================================
 
-node.className
-
-node.style.stylename
+node.style.styleName = 'newThingIwant';
 
 node.style.color = 'bla';
 node.style.marginTop = 'bla';
@@ -85,9 +93,9 @@ node.style.paddingBottom = 'bla';
 
 document.defaultView().getComputedStyle(node, "").getPropertyValue(stylename);
 
-//==========Creating Elements (not available until you paste into the tree)=========
+//======================== Creating Elements ========================================
 
-var child = document.createElement(tagName);
+document.createElement(tagName);
 
 document.createTextNode(text);
 
@@ -95,24 +103,25 @@ node.cloneNode()
 
 node.cloneNode(true) //clone all an elements descendents too
 
-//======================Linking elements (pasting into tree)=========================
+//============================= Linking elements ====================================
 
 node.appendChild(child)
 
 node.insertBefore(new, sibling);
 
-node.replaceChild(new, old);
+node.replaceChild(new, old); --> old.parentNode.replaceChild(new, old);
 
-old.parentNode.replaceChild(new, old);
-
-//===============================Removing Elements===================================
+//============================== Removing Elements ==================================
 
 node.removeChild(old); //won't work if node has an event handler
 
-//=====================================InnerHTML=====================================
+//==================================== InnerHTML ====================================
 
 /*
 	innerHTML is faster than building/cloning/appending/ elements to the Doc but it is a security risk
+
+	If a user inputs a script tag, they can inject it through innerHTML into the site, but in HTML5,
+	browsers never execute scripts that are inserted using innerHTML
 */
 
 var content = node.innerHTML;
